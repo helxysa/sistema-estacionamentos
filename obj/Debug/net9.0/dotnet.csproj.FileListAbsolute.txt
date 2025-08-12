@@ -12,3 +12,4 @@
 /home/heloysa/dotnet/obj/Debug/net9.0/dotnet.pdb
 /home/heloysa/dotnet/obj/Debug/net9.0/dotnet.genruntimeconfig.cache
 /home/heloysa/dotnet/obj/Debug/net9.0/ref/dotnet.dll
+/home/heloysa/dotnet/obj/Debug/net9.0/dotnet.sourcelink.json
