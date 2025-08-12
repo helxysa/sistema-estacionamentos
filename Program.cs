@@ -6,13 +6,48 @@ Console.OutputEncoding = System.Text.Encoding.UTF8;
 decimal precoInicial = 0;
 decimal precoPorHora = 0;
 
+// Tratamento para preço inicial
+bool precoInicialValido = false;
+while (!precoInicialValido)
+{
+    try
+    {
+        Console.WriteLine("Seja bem vindo ao sistema de estacionamento!\n" +
+                          "Digite o preço inicial:");
+        string inputPrecoInicial = Console.ReadLine();
+        precoInicial = Convert.ToDecimal(inputPrecoInicial);
+        precoInicialValido = true;
+    }
+    catch (FormatException)
+    {
+        Console.WriteLine("Erro: Digite um valor numérico válido para o preço inicial.");
+    }
+    catch (OverflowException)
+    {
+        Console.WriteLine("Erro: O valor digitado é muito grande. Tente um valor menor.");
+    }
+}
 
-Console.WriteLine("Seja bem vindo ao sistema de estacionamento!\n" +
-                  "Digite o preço inicial:");
-precoInicial = Convert.ToDecimal(Console.ReadLine());
-
-Console.WriteLine("Agora digite o preço por hora:");
-precoPorHora = Convert.ToDecimal(Console.ReadLine());
+// Tratamento para preço por hora
+bool precoPorHoraValido = false;
+while (!precoPorHoraValido)
+{
+    try
+    {
+        Console.WriteLine("Agora digite o preço por hora:");
+        string inputPrecoPorHora = Console.ReadLine();
+        precoPorHora = Convert.ToDecimal(inputPrecoPorHora);
+        precoPorHoraValido = true;
+    }
+    catch (FormatException)
+    {
+        Console.WriteLine("Erro: Digite um valor numérico válido para o preço por hora.");
+    }
+    catch (OverflowException)
+    {
+        Console.WriteLine("Erro: O valor digitado é muito grande. Tente um valor menor.");
+    }
+}
 
 Estacionamento es = new Estacionamento(precoInicial, precoPorHora);
 
