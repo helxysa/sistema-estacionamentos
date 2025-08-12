@@ -1,28 +1,88 @@
-Você foi contratado para construir um sistema para um estacionamento, que será usado para gerenciar os veículos estacionados e realizar suas operações, como por exemplo adicionar um veículo, remover um veículo (e exibir o valor cobrado durante o período) e listar os veículos.
+# Sistema de Estacionamento
 
-Você precisará construir uma classe chamada "Estacionamento", conforme o diagrama abaixo: Diagrama de classe estacionamento
+## Descrição
+Sistema de gerenciamento de estacionamento desenvolvido em C# para controle de veículos, cálculo de tarifas e operações administrativas.
 
-A classe contém três variáveis, sendo:
+## Funcionalidades
 
-precoInicial: Tipo decimal. É o preço cobrado para deixar seu veículo estacionado.
+### Operações Principais
+- **Cadastrar Veículo**: Registra a entrada de um veículo no estacionamento
+- **Remover Veículo**: Processa a saída e calcula o valor total a ser cobrado
+- **Listar Veículos**: Exibe todos os veículos atualmente estacionados
+- **Encerrar Sistema**: Finaliza a execução do programa
 
-precoPorHora: Tipo decimal. É o preço por hora que o veículo permanecer estacionado.
+### Características Técnicas
+- Interface de console interativa e intuitiva
+- Validação robusta de entrada de dados
+- Tratamento de exceções para valores inválidos
+- Cálculo automático de tarifas baseado no tempo de permanência
+- Persistência de dados durante a sessão
 
-veiculos: É uma lista de string, representando uma coleção de veículos estacionados. Contém apenas a placa do veículo.
+## Arquitetura
 
-A classe contém três métodos, sendo:
+### Classe Estacionamento
+A classe principal contém:
 
-AdicionarVeiculo: Método responsável por receber uma placa digitada pelo usuário e guardar na variável veiculos.
+- **precoInicial** (decimal): Tarifa fixa para entrada no estacionamento
+- **precoPorHora** (decimal): Valor cobrado por hora de permanência
+- **veiculos** (List<string>): Coleção de placas dos veículos estacionados
 
-RemoverVeiculo: Método responsável por verificar se um determinado veículo está estacionado, e caso positivo, irá pedir a quantidade de horas que ele permaneceu no estacionamento. Após isso, realiza o seguinte cálculo: precoInicial * precoPorHora, exibindo para o usuário.
+### Métodos Implementados
+- `AdicionarVeiculo()`: Registra novo veículo na lista
+- `RemoverVeiculo()`: Remove veículo e calcula tarifa total
+- `ListarVeiculos()`: Exibe todos os veículos estacionados
 
-ListarVeiculos: Lista todos os veículos presentes atualmente no estacionamento. Caso não haja nenhum, exibir a mensagem "Não há veículos estacionados".
+## Como Executar
 
-Por último, deverá ser feito um menu interativo com as seguintes ações implementadas:
+### Pré-requisitos
+- .NET 6.0 ou superior
+- Sistema operacional compatível (Windows, macOS, Linux)
 
-Cadastrar veículo
-Remover veículo
-Listar veículos
-Encerrar
-Solução
-O código está pela metade, e você deverá dar continuidade obedecendo as regras descritas acima, para que no final, tenhamos um programa funcional. Procure pela palavra comentada "TODO" no código, em seguida, implemente conforme as regras acima.
+### Comandos de Execução
+```bash
+# Compilar o projeto
+dotnet build
+
+# Executar o programa
+dotnet run
+```
+
+## Fluxo de Uso
+
+1. **Configuração Inicial**
+   - Defina o preço inicial de entrada
+   - Configure o valor por hora de permanência
+
+2. **Menu Principal**
+   - Navegue pelas opções numeradas (1-4)
+   - Cada operação é confirmada antes de prosseguir
+
+3. **Operações Disponíveis**
+   - **Opção 1**: Cadastrar entrada de veículo
+   - **Opção 2**: Processar saída e calcular tarifa
+   - **Opção 3**: Visualizar veículos estacionados
+   - **Opção 4**: Encerrar o sistema
+
+## Tratamento de Erros
+
+O sistema implementa validações robustas:
+- Verificação de formato numérico para valores monetários
+- Tratamento de overflow para valores muito grandes
+- Mensagens de erro claras e orientativas
+- Loop de validação até entrada correta
+
+## Estrutura do Projeto
+
+```
+DesafioFundamentos/
+├── Models/
+│   └── Estacionamento.cs
+├── Program.cs
+└── README.md
+```
+
+## Tecnologias Utilizadas
+
+- **C#**: Linguagem principal de desenvolvimento
+- **.NET**: Framework de desenvolvimento
+- **Console Application**: Interface de usuário via terminal
